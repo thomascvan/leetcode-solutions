@@ -3,10 +3,10 @@ class Solution:
         charDict = dict()
         longest = 0
         l = 0
-
+        mostFrequentCharCount = 0
         for r in range(len(s)):
             charDict[s[r]] = charDict.get(s[r], 0) + 1
-            mostFrequentCharCount = max(charDict.values())
+            mostFrequentCharCount = max(mostFrequentCharCount, charDict[s[r]])
             while k < r-l+1 - mostFrequentCharCount:
                 charDict[s[l]] -= 1
                 l += 1
