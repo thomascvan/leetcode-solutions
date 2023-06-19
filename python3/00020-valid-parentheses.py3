@@ -8,14 +8,17 @@ class Solution:
             '}': '{'
         }
 
-        for i in range(len(s)):
-            if (s[i] in parensDict and len(stack) == 0) or (s[i] in parensDict and stack[-1] != parensDict[s[i]]):
-                return False
-            elif s[i] in parensDict and stack[-1] == parensDict[s[i]]:
-                stack.pop()
+        for char in s:
+            if char in parensDict:
+                if stack and stack[-1] == parensDict[char]:
+                    stack.pop()
+                else:
+                    return False
             else:
-                stack.append(s[i])
+                stack.append(char)
+
         return len(stack) == 0
+
 
 solution = Solution()
 print('Should return True:', solution.isValid('()'))
