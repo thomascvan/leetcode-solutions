@@ -9,7 +9,7 @@ class Solution:
         formed = 0
         window_count = Counter()
         min_len = float('inf')
-        ans = ""
+        ans = ''
 
         for right, char in enumerate(s):
             window_count[char] += 1
