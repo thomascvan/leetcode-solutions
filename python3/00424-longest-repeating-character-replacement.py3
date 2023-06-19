@@ -6,10 +6,9 @@ class Solution:
 
         for r in range(len(s)):
             charDict[s[r]] = charDict.get(s[r], 0) + 1
-            mostFrequentChar = max(charDict, key=charDict.get)
-            mostFrequentCharCount = charDict[mostFrequentChar]
+            mostFrequentCharCount = max(charDict.values())
             while k < r-l+1 - mostFrequentCharCount:
-                charDict[s[l]] = charDict[s[l]] -1
+                charDict[s[l]] -= 1
                 l += 1
             longest = max(longest, r-l+1)
         return longest
